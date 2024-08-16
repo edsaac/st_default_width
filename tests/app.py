@@ -40,7 +40,7 @@ def main():
         cols = st.columns([1, 2])
         with cols[0]:
             st.image("https://placehold.co/50x50")
-            st.button("A button :()")
+            st.button("A button :(")
 
         with cols[1]:
             st.image("https://placehold.co/100x50")
@@ -66,11 +66,15 @@ def main():
 if __name__ == "__main__":
     st.set_page_config(page_title="`st_default_width", page_icon="↔️")
 
-    intro_page = st.Page(main, title="Basic Example", icon="↔️", default=True)
+    intro_page = st.Page(main, title="Start here", icon="↔️", default=True)
 
     interactive_page = st.Page(
         "app_pages/interactive.py", title="Interactive", icon="🕹️"
     )
 
-    pg = st.navigation([intro_page, interactive_page])
+    small_test_page = st.Page("app_pages/small_test.py", title="Small Test", icon="🧪")
+
+    pg = st.navigation(
+        {"Intro": [intro_page], "Examples": [small_test_page, interactive_page]}
+    )
     pg.run()

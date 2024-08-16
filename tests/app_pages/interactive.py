@@ -29,8 +29,6 @@ def main():
 
     ## Module Controls
     with st.sidebar:
-        st.markdown("Set `use_container_width` to a default value for all elements")
-        st.divider()
         st.button(
             "Set default to `True`",
             on_click=set_use_container_width_default,
