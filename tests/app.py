@@ -4,6 +4,20 @@ from st_default_width import set_use_container_width_default
 
 def main():
     st.header("`st_default_width`", divider="rainbow")
+
+    st.markdown("**Getting started:**")
+    st.code(
+        """
+        import streamlit as st
+        from st_default_width import set_use_container_width_default
+
+        set_use_container_width_default()
+        st.image("https://placehold.co/50x50")
+        st.button("Botón")
+        """,
+        language="python",
+    )
+    st.divider()
     st.markdown("**Examples:**")
 
     with st.echo():
