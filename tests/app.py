@@ -1,48 +1,49 @@
 import streamlit as st
-import matplotlib.pyplot as plt
-import pandas as pd
-
-from st_default_width import (
-    set_use_container_width_default,
-    revert_use_container_width_default,
-)
+from st_default_width import set_use_container_width_default
 
 
 def main():
-    st.title("`st_default_width`")
-    st.markdown("Make `use_container_width = True` for all widgets")
+    st.header("`st_default_width`", divider="rainbow")
+    st.markdown("**Examples:**")
 
-    with st.expander("Image", expanded=True):
-        with st.echo():
-            st.image("https://placehold.co/100x100")
-
-    with st.expander("Dataframe", expanded=True):
-        with st.echo():
-            df = pd.DataFrame({"x": [1, 2, 3], "y": [4, 5, 6]})
-            st.dataframe(df)
-            st.data_editor(df)
-
-    with st.expander("Plots", expanded=True):
-        with st.echo():
-            fig, ax = plt.subplots(figsize=(2, 1))
-            ax.plot([1, 2, 3], [4, 5, 6])
-            st.pyplot(fig)
-
-    ## Module Controls
     with st.sidebar:
-        st.button(
-            "Set default to `True`",
-            on_click=set_use_container_width_default,
-        )
+        st.markdown("Set `use_container_width` to a default value for all elements")
 
-        st.button(
-            "Set default to `False`",
-            on_click=set_use_container_width_default,
-            args=(False,),
-        )
+    with st.echo():
+        set_use_container_width_default()
 
-        st.button("Revert defaults", on_click=revert_use_container_width_default)
+        cols = st.columns([1, 2])
+        with cols[0]:
+            st.image("https://placehold.co/50x50")
+            st.button("A button :)")
+
+        with cols[1]:
+            st.image("https://placehold.co/100x50")
+            st.button("A button :D")
+
+    st.divider()
+
+    with st.echo():
+        set_use_container_width_default(False)
+
+        cols = st.columns([1, 2])
+        with cols[0]:
+            st.image("https://placehold.co/50x50")
+            st.button("A button :()")
+
+        with cols[1]:
+            st.image("https://placehold.co/100x50")
+            st.button("A button :S")
 
 
 if __name__ == "__main__":
-    main()
+    st.set_page_config(page_title="`st_default_width", page_icon="↔️")
+
+    intro_page = st.Page(main, title="Basic Example", icon="↔️", default=True)
+
+    interactive_page = st.Page(
+        "app_pages/interactive.py", title="Interactive", icon="🕹️"
+    )
+
+    pg = st.navigation([intro_page, interactive_page])
+    pg.run()
