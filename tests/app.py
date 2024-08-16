@@ -64,7 +64,7 @@ def main():
 
 
 if __name__ == "__main__":
-    st.set_page_config(page_title="`st_default_width", page_icon="↔️")
+    st.set_page_config(page_title="st_default_width", page_icon="↔️")
 
     intro_page = st.Page(main, title="Start here", icon="↔️", default=True)
 
