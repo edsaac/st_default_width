@@ -10,6 +10,7 @@ from st_default_width import (
 
 def main():
     st.title("`st_default_width`")
+    st.markdown("Make `use_container_width = True` for all widgets")
 
     with st.expander("Image", expanded=True):
         with st.echo():
