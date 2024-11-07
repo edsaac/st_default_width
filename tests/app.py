@@ -4,7 +4,9 @@ from st_default_width import set_use_container_width_default
 
 def main():
     st.header("`st_default_width`", divider="rainbow")
-
+    st.write(
+        "Set `use_container_width` to a default value for all Streamlit elements with a single line of code."
+    )
     st.markdown("**Getting started:**")
     st.code(
         """
@@ -47,10 +49,6 @@ def main():
             st.button("A button :S")
 
     with st.sidebar:
-        st.markdown(
-            "Make `use_container_width = True` in all streamlit elements.",
-        )
-        st.divider()
         st.markdown("**Installation:**")
         st.code("pip install st_default_width", language="sh")
         st.markdown(
@@ -64,7 +62,10 @@ def main():
 
 
 if __name__ == "__main__":
-    st.set_page_config(page_title="st_default_width", page_icon="↔️")
+    st.set_page_config(
+        page_icon="↔️",
+        page_title="st_default_width · use_container_width always (or never) in your Streamlit elements.",
+    )
 
     intro_page = st.Page(main, title="Start here", icon="↔️", default=True)
 
