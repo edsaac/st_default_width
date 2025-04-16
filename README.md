@@ -17,7 +17,7 @@
 |![image](https://github.com/user-attachments/assets/3a666557-58cb-4aec-a005-289a276902c6)|![image](https://github.com/user-attachments/assets/7bd88ea3-3b61-4626-9c69-182c413d188b)|
 
 
-### Instalation
+### Installation
 
 ```sh
 (.venv) $ pip install st_default_width
